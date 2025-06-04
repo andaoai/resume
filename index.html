@@ -4,325 +4,457 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>陈柳安 - 软件工程师简历</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: white;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .left-column {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 25px;
+        }
+
+        .right-column {
+            padding: 30px 40px;
+            background: white;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #34495e;
+        }
+
+        .name {
+            font-size: 2.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .title {
+            font-size: 1.1em;
+            color: #bdc3c7;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            text-align: left;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 0.9em;
+        }
+
+        .contact-item i {
+            width: 20px;
+            margin-right: 10px;
+            color: #3498db;
+        }
+
+        .left-section {
+            margin-bottom: 30px;
+        }
+
+        .left-section h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+        }
+
+        .school {
+            font-weight: bold;
+            color: white;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .degree {
+            color: #bdc3c7;
+            font-size: 0.9em;
+            margin-bottom: 3px;
+        }
+
+        .date {
+            color: #95a5a6;
+            font-size: 0.85em;
+        }
+
+        .work-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #ecf0f1;
+            border-radius: 5px;
+        }
+
+        .work-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .work-desc {
+            font-size: 0.85em;
+            color: #7f8c8d;
+        }
+
+        .skill-category {
+            margin-bottom: 20px;
+        }
+
+        .skill-category h3 {
+            color: #3498db;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .skill-item {
+            margin-bottom: 12px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3px;
+        }
+
+        .skill-name {
+            font-size: 0.9em;
+            color: white;
+        }
+
+        .skill-level {
+            color: #f39c12;
+            font-size: 0.9em;
+        }
+
+        .skill-desc {
+            font-size: 0.8em;
+            color: #bdc3c7;
+            margin-top: 3px;
+        }
+
+        .right-section {
+            margin-bottom: 30px;
+        }
+
+        .right-section h2 {
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .right-section h2 i {
+            margin-right: 10px;
+            color: #3498db;
+        }
+
+        .job-item, .project-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .job-header, .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .company, .project-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .job-date, .project-date {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+
+        .position, .project-type {
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .job-item ul, .project-item ul {
+            padding-left: 20px;
+        }
+
+        .job-item li, .project-item li {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                margin: 10px;
+            }
+            
+            .left-column {
+                order: 2;
+            }
+            
+            .right-column {
+                order: 1;
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <div class="background-animation"></div>
-        
-        <header class="header">
-            <div class="avatar">
-                <div class="avatar-inner">
-                    <i class="fas fa-user"></i>
+        <div class="left-column">
+            <div class="profile-section">
+                <h1 class="name">陈柳安</h1>
+                <p class="title">软件工程师</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i>📞</i>
+                        <span>17520092571</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>📧</i>
+                        <span>andaoai@outlook.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>🔗</i>
+                        <span>https://github.com/andaoai</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>💼</i>
+                        <span>工作经验: 2年</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>📍</i>
+                        <span>期望工作地: 宁波</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>💼</i>
+                        <span>职位: 软件工程师</span>
+                    </div>
                 </div>
             </div>
-            <h1 class="name">陈柳安</h1>
-            <p class="title">软件工程师</p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>17520092571</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>andaoai@outlook.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-github"></i>
-                    <span>https://github.com/andaoai</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-briefcase"></i>
-                    <span>工作经验: 2年</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>期望工作地: 宁波</span>
+
+            <div class="left-section">
+                <h2>教育背景</h2>
+                <div class="education-item">
+                    <span class="school">华南理工大学继续教育学院</span>
+                    <div class="degree">计算机科学与技术 (专科)</div>
+                    <div class="date">2018.09.01 ~ 2020.06.30</div>
                 </div>
             </div>
-        </header>
 
-        <main class="main-content">
-            <section class="section" id="education">
-                <h2 class="section-title">
-                    <i class="fas fa-graduation-cap"></i>
-                    教育背景
-                </h2>
-                <div class="card">
-                    <div class="education-item">
-                        <div class="education-header">
-                            <span class="school">华南理工大学继续教育学院</span>
-                            <span class="date">2018.09 - 2020.06</span>
+            <div class="left-section">
+                <h2>个人作品</h2>
+                <div class="work-item">
+                    <div class="work-name">⭐ 算法ResUnet训练</div>
+                    <div class="work-desc">个人纯手搭建算法模型实现图像语义分割</div>
+                </div>
+            </div>
+
+            <div class="left-section">
+                <h2>个人技能</h2>
+                <div class="skill-category">
+                    <h3>HTML/CSS/JavaScript/Vue</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-level">⭐⭐⭐⭐☆</span>
                         </div>
-                        <div class="degree">计算机科学与技术（专科）</div>
+                        <div class="skill-desc">利用VUE框架，使用element组件、DataV组件等完成数据可视化页面开发、业务页面开发等等。</div>
                     </div>
                 </div>
-            </section>
-
-            <section class="section" id="skills">
-                <h2 class="section-title">
-                    <i class="fas fa-code"></i>
-                    技术技能
-                </h2>
-                <div class="skills-container">
-                    <div class="skill-category card">
-                        <h3>前端开发</h3>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">HTML/CSS/JavaScript/Vue</span>
-                                <div class="skill-level">
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul>
-                                <li>利用VUE框架，使用element组件、DataV组件等完成数据可视化页面开发、业务页面开发</li>
-                            </ul>
+                
+                <div class="skill-category">
+                    <h3>Python/Tensorflow/Pytorch</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-level">⭐⭐⭐⭐☆</span>
                         </div>
-                    </div>
-                    
-                    <div class="skill-category card">
-                        <h3>后端开发</h3>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">Python/Tensorflow/Pytorch</span>
-                                <div class="skill-level">
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul>
-                                <li>可对照片上深度学习算法进行独立开发，使用python Flask进行后端开放AI能力</li>
-                            </ul>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">GO/Go-zero/Grpc/Gin</span>
-                                <div class="skill-level">
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul>
-                                <li>能够使用Go-zero框架完成微服务的业务逻辑规划，从后端到请求到数据库的编写</li>
-                                <li>也可使用Gin开发单体架构业务</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category card">
-                        <h3>运维与数据库</h3>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">Linux/Docker</span>
-                                <div class="skill-level">
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul>
-                                <li>熟悉Docker相关概念、有Linux、Docker使用经验</li>
-                            </ul>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">MySQL/MongoDB/Redis</span>
-                                <div class="skill-level">
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul>
-                                <li>可完成数据库控制查询操作</li>
-                            </ul>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span class="skill-name">阿里云/华为云</span>
-                                <div class="skill-level">
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul>
-                                <li>常用阿里云ECS、CDN、OSS等组件</li>
-                                <li>拥有阿里云ACP、华为云HClP、华为云HCIA认证</li>
-                            </ul>
-                        </div>
+                        <div class="skill-desc">可对照片上深度学习算法进行独立开发，并且使用python Flask进行后端开放AI能力</div>
                     </div>
                 </div>
-            </section>
-
-            <section class="section" id="experience">
-                <h2 class="section-title">
-                    <i class="fas fa-briefcase"></i>
-                    工作经历
-                </h2>
-                <div class="timeline">
-                    <div class="timeline-item card">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="job-header">
-                                <span class="company">广东创云科技有限公司</span>
-                                <span class="date">2021.01 - 2022.06</span>
-                            </div>
-                            <div class="position">技术部 - 云计算工程师</div>
-                            <ul>
-                                <li>负责云计算客户售前售后问题答疑</li>
-                                <li>负责云产品迁移、云计算相关的自动化python脚本开发</li>
-                                <li>负责公司前后端开发</li>
-                                <li>负责项目推进项目文档编写</li>
-                            </ul>
+                
+                <div class="skill-category">
+                    <h3>GO/Go-zero/Grpc/Gin</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-level">⭐⭐⭐⭐☆</span>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item card">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="job-header">
-                                <span class="company">广州鲲鹏物联科技有限公司</span>
-                                <span class="date">2022.08 - 2023.04</span>
-                            </div>
-                            <div class="position">技术部 - 后端工程师</div>
-                            <ul>
-                                <li>前后端相关开发</li>
-                                <li>架构设计</li>
-                                <li>算法开发</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item card">
-                        <div class="timeline-marker active"></div>
-                        <div class="timeline-content">
-                            <div class="job-header">
-                                <span class="company">宁波海棠信息科技有限公司</span>
-                                <span class="date">2023.05 - 至今</span>
-                            </div>
-                            <div class="position">技术部 - 算法工程师</div>
-                            <ul>
-                                <li>负责项目推理流程设计</li>
-                                <li>负责算法后端推理设计</li>
-                                <li>负责内部通用推理程序设计</li>
-                            </ul>
-                        </div>
+                        <div class="skill-desc">能够使用Go-zero框架完成微服务的业务逻辑规划，从后端到请求到数据库的编写，也可使用Gin开发单体架构业务。</div>
                     </div>
                 </div>
-            </section>
-
-            <section class="section" id="projects">
-                <h2 class="section-title">
-                    <i class="fas fa-project-diagram"></i>
-                    项目经历
-                </h2>
-                <div class="projects-grid">
-                    <div class="project-item card">
-                        <div class="project-header">
-                            <span class="project-name">物联网推理设备管理平台</span>
-                            <span class="date">2022.08 - 2023.04</span>
+                
+                <div class="skill-category">
+                    <h3>Linux/Docker/K8S</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-level">⭐⭐⭐☆☆</span>
                         </div>
-                        <div class="project-type">后端开发</div>
-                        <ul>
-                            <li><strong>项目描述：</strong>物联网推理设备管理平台开发。</li>
-                            <li><strong>主要工作：</strong>主要负责后端开发，使用golang语言的gin框架对算法使用用户管理模块的增删查改，针对业务设计出数据库的相应的存储方式。</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-item card">
-                        <div class="project-header">
-                            <span class="project-name">某厂机油尺算法缺陷检测</span>
-                            <span class="date">2023.05 - 2023.08</span>
-                        </div>
-                        <div class="project-type">算法开发</div>
-                        <ul>
-                            <li><strong>项目描述：</strong>主要解决机油尺的长度是否符合工业要求，胶圈是否存在。</li>
-                            <li><strong>主要工作：</strong>负责使用python开发相关算法，设计推理流程。</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-item card">
-                        <div class="project-header">
-                            <span class="project-name">车辆违停检测</span>
-                            <span class="date">2023.09 - 2023.12</span>
-                        </div>
-                        <div class="project-type">算法开发</div>
-                        <ul>
-                            <li><strong>项目描述：</strong>主要解决指定区域是否有车辆违停。</li>
-                            <li><strong>主要工作：</strong>负责使用python开发相关算法，设计推理流程，上报到指定软件平台。</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-item card">
-                        <div class="project-header">
-                            <span class="project-name">某汽车工件计数检测</span>
-                            <span class="date">2024.01 - 2024.04</span>
-                        </div>
-                        <div class="project-type">算法开发</div>
-                        <ul>
-                            <li><strong>项目描述：</strong>统计工件计数，同时识别出工件的是否有缺陷。使用数据库统计好历史数据。</li>
-                            <li><strong>主要工作：</strong>负责使用python开发相关算法设计，设计整体推理流程，以及整体软件架构。</li>
-                        </ul>
+                        <div class="skill-desc">熟悉K8s相关概念，有Linux、Docker使用经验</div>
                     </div>
                 </div>
-            </section>
-
-            <section class="section" id="interests">
-                <h2 class="section-title">
-                    <i class="fas fa-heart"></i>
-                    个人兴趣爱好
-                </h2>
-                <div class="card">
-                    <div class="interests-grid">
-                        <div class="interest-item">
-                            <i class="fas fa-table-tennis"></i>
-                            <span>个人特别喜欢打羽毛球运动</span>
+                
+                <div class="skill-category">
+                    <h3>阿里云/华为云</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-level">⭐⭐⭐⭐☆</span>
                         </div>
-                        <div class="interest-item">
-                            <i class="fas fa-robot"></i>
-                            <span>开发一些小插件，比如微信机器人，使用大模型聊天，知识库问答等等</span>
-                        </div>
-                        <div class="interest-item">
-                            <i class="fas fa-rocket"></i>
-                            <span>对前沿科技持有热爱</span>
-                        </div>
+                        <div class="skill-desc">常用阿里云ECS、CDN、OSS等等相关组件，拥有阿里云ACP、华为云HCIP、华为云HCIA认证。</div>
                     </div>
                 </div>
-            </section>
-        </main>
+                
+                <div class="skill-category">
+                    <h3>Mysql/MongoDB/Redis</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-level">⭐⭐⭐☆☆</span>
+                        </div>
+                        <div class="skill-desc">可完成数据库增删查改操作。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="right-section">
+                <h2><i>💼</i>工作经历</h2>
+                
+                <div class="job-item">
+                    <div class="job-header">
+                        <span class="company">宁波海棠信息科技有限公司</span>
+                        <span class="job-date">2023.05 ~ 至今</span>
+                    </div>
+                    <div class="position">技术部 - 算法工程师</div>
+                    <ul>
+                        <li>负责项目推理流程设计</li>
+                        <li>负责算法后端推理设计</li>
+                        <li>负责内部通用推理程序设计</li>
+                    </ul>
+                </div>
+                
+                <div class="job-item">
+                    <div class="job-header">
+                        <span class="company">广东创云科技有限公司</span>
+                        <span class="job-date">2021.01 ~ 2022.06</span>
+                    </div>
+                    <div class="position">技术部 - 云计算工程师</div>
+                    <ul>
+                        <li>负责云计算客户售前售后问题答疑。</li>
+                        <li>负责云产品迁移、云计算相关的自动化python脚本开发。</li>
+                        <li>负责公司前后端开发。</li>
+                        <li>负责项目推进项目文档编写。</li>
+                    </ul>
+                </div>
+                
+                <div class="job-item">
+                    <div class="job-header">
+                        <span class="company">广州鲲鹏物联科技有限公司</span>
+                        <span class="job-date">2022.08 ~ 2023.04</span>
+                    </div>
+                    <div class="position">技术部 - 后端工程师</div>
+                    <ul>
+                        <li>前后端相关开发</li>
+                        <li>架构设计</li>
+                        <li>算法开发</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <h2><i>🚀</i>项目经历</h2>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">某厂机油尺算法缺陷检测</span>
+                        <span class="project-date">2023.06~2023.09</span>
+                    </div>
+                    <div class="project-type">算法开发</div>
+                    <div style="margin-bottom: 10px;"><strong>项目描述：</strong>主要解决机油尺的长度是否符合工业要求，胶圈是否存在。</div>
+                    <div style="margin-bottom: 10px;"><strong>主要工作：</strong>负责使用python开发相关算法，设计推理流程。</div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">车辆违停检测</span>
+                        <span class="project-date">2023.10~2023.12</span>
+                    </div>
+                    <div class="project-type">算法开发</div>
+                    <div style="margin-bottom: 10px;"><strong>项目描述：</strong>主要解决指定区域是否有车辆违停。</div>
+                    <div style="margin-bottom: 10px;"><strong>主要工作：</strong>负责使用python开发相关算法，设计推理流程。</div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">某汽车工件计数检测</span>
+                        <span class="project-date">2024.01~2024.03</span>
+                    </div>
+                    <div class="project-type">算法开发</div>
+                    <div style="margin-bottom: 10px;"><strong>项目描述：</strong>统计工件计数，同时识别出工件的是否有缺陷。</div>
+                    <div style="margin-bottom: 10px;"><strong>主要工作：</strong>负责使用python开发相关算法设计，设计整体推理流程。</div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">物联网推理设备管理平台</span>
+                        <span class="project-date">2022.09~2023.03</span>
+                    </div>
+                    <div class="project-type">后端开发</div>
+                    <div style="margin-bottom: 10px;"><strong>项目描述：</strong>物联网推理设备管理平台，提供设备管理和算法推理服务。</div>
+                    <div style="margin-bottom: 10px;"><strong>主要工作：</strong>主要负责后端开发，使用golang语言的gin框架对算法使用用户管理模块的增删查改，实现针对业务设计出数据库的相应的存储方式。</div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">图像分割开发与测试</span>
+                        <span class="project-date">2019.11~2020.06</span>
+                    </div>
+                    <div class="project-type">深度学习算法开发</div>
+                    <div style="margin-bottom: 10px;"><strong>项目描述：</strong>工业产品与传送带背景进行图像分割，传统利用opencv分割图像，利用新的深度学习方法进行分割。</div>
+                    <div style="margin-bottom: 10px;"><strong>主要工作：</strong>负责深度学习算法开发，利用卷积神经网络，配合残差网络、Unet等算法结合成Res-Unet算法进行语义分割，利用python Flask开放相关API接口，可参考个人作品查看训练情况。</div>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <script src="script.js"></script>
 </body>
 </html>
