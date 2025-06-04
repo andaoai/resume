@@ -22,26 +22,27 @@
 
         .container {
             width: 794px;
-            height: 1123px;
+            /* height: 1123px; 移除固定高度限制 */
+            min-height: 1123px; /* 设置最小高度为A4纸高度 */
             margin: 0 auto;
             background: white;
             display: grid;
             grid-template-columns: 260px 1fr;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            overflow: hidden;
+            /* overflow: hidden; 移除溢出隐藏，允许内容超出 */
         }
 
         .left-column {
             background: #2c3e50;
             color: white;
             padding: 20px 15px;
-            overflow: hidden;
+            /* overflow: hidden; 移除溢出隐藏 */
         }
 
         .right-column {
             padding: 20px 25px;
             background: white;
-            overflow: hidden;
+            /* overflow: hidden; 移除溢出隐藏 */
         }
 
         .profile-section {
@@ -396,6 +397,13 @@
                     <h3>Mysql/MongoDB/Redis</h3>
                     <div class="skill-item">
                         <div class="skill-desc">熟练掌握数据库设计和CRUD操作，具备数据库性能优化经验。</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Git/GitLab/GitHub</h3>
+                    <div class="skill-item">
+                        <div class="skill-desc">熟悉Git版本控制系统，熟练使用GitLab、GitHub进行代码管理和协作开发，了解CI/CD流水线配置和自动化部署。</div>
                     </div>
                 </div>
             </div>
