@@ -294,16 +294,235 @@
                 grid-template-columns: 1fr;
                 margin: 10px;
             }
-            
+
             .left-column {
                 order: 2;
             }
-            
+
             .right-column {
                 order: 1;
                 padding: 20px;
             }
         } */
+
+        /* 自定义弹窗样式 */
+        .custom-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 0;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 20px;
+            border-radius: 12px 12px 0 0;
+            text-align: center;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .modal-body {
+            padding: 25px;
+        }
+
+        .modal-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .modal-button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .modal-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #27ae60, #229954);
+            color: white;
+        }
+
+        .btn-info {
+            background: linear-gradient(135deg, #17a2b8, #138496);
+            color: white;
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+            color: white;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* 弹幕提示样式 */
+        .danmaku-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .danmaku-item {
+            position: absolute;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            animation: danmakuMove 8s linear forwards;
+            opacity: 0.9;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            /* 初始位置在屏幕右侧外 */
+            left: 100vw;
+        }
+
+        .danmaku-item::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #3498db, #e74c3c, #f39c12, #27ae60);
+            border-radius: 22px;
+            z-index: -1;
+            animation: borderGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes danmakuMove {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(calc(-100vw - 100%));
+            }
+        }
+
+        @keyframes borderGlow {
+            0% {
+                opacity: 0.5;
+                filter: blur(2px);
+            }
+            100% {
+                opacity: 0.8;
+                filter: blur(4px);
+            }
+        }
+
+        .danmaku-style-1 {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            animation: danmakuMove 10s linear forwards;
+        }
+
+        .danmaku-style-2 {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            animation: danmakuMove 12s linear forwards;
+        }
+
+        .danmaku-style-3 {
+            background: linear-gradient(135deg, #27ae60, #229954);
+            animation: danmakuMove 9s linear forwards;
+        }
+
+        .danmaku-style-4 {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            animation: danmakuMove 11s linear forwards;
+        }
+
+        .danmaku-style-5 {
+            background: linear-gradient(135deg, #17a2b8, #138496);
+            animation: danmakuMove 13s linear forwards;
+        }
     </style>
 </head>
 <body>
@@ -514,8 +733,131 @@
         </div>
     </div>
 
+    <!-- 弹幕容器 -->
+    <div id="danmakuContainer" class="danmaku-container"></div>
+
+    <!-- 自定义弹窗 -->
+    <div id="customModal" class="custom-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+                <h3>🎯 选择您想要的操作</h3>
+            </div>
+            <div class="modal-body">
+                <div class="modal-buttons">
+                    <button class="modal-button btn-primary" onclick="exportToPDF()">
+                        📄 导出PDF简历
+                    </button>
+                    <button class="modal-button btn-success" onclick="viewWorks()">
+                        ⭐ 查看我的作品
+                    </button>
+                    <button class="modal-button btn-info" onclick="viewGitHub()">
+                        🔗 访问GitHub
+                    </button>
+                    <button class="modal-button btn-warning" onclick="contactMe()">
+                        📞 联系我
+                    </button>
+                    <button class="modal-button btn-secondary" onclick="downloadResume()">
+                        💾 下载简历文件
+                    </button>
+                    <button class="modal-button btn-danger" onclick="closeModal()">
+                        ❌ 关闭
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // 弹幕提示文本数组
+        const danmakuMessages = [
+            "💡 点击页面任意位置查看更多选项！",
+            "📄 想要下载简历？点击这里！",
+            "🎯 点击页面发现隐藏功能",
+            "⭐ 点击查看我的精彩作品",
+            "🔗 点击访问我的GitHub主页",
+            "📞 点击获取我的联系方式",
+            "💾 点击下载完整简历文件",
+            "🚀 点击页面解锁更多功能",
+            "✨ 轻点屏幕，发现惊喜！",
+            "🎨 点击体验交互式简历",
+            "📱 移动端也支持点击操作哦",
+            "🎪 点击进入功能菜单",
+            "🌟 不要错过点击功能！",
+            "🎁 点击页面有惊喜等着你",
+            "🔥 热门功能：点击页面试试",
+            "💫 点击解锁隐藏菜单",
+            "🎵 点击页面，音符般的体验",
+            "🌈 彩虹般的功能等你点击",
+            "🎪 马戏团般精彩，点击查看",
+            "🎭 点击页面，精彩演出开始"
+        ];
+
+        let danmakuInterval;
+        let danmakuCount = 0;
+
+        function createDanmaku() {
+            const container = document.getElementById('danmakuContainer');
+            const message = danmakuMessages[Math.floor(Math.random() * danmakuMessages.length)];
+
+            const danmaku = document.createElement('div');
+            danmaku.className = `danmaku-item danmaku-style-${Math.floor(Math.random() * 5) + 1}`;
+            danmaku.textContent = message;
+
+            // 随机垂直位置
+            const randomTop = Math.random() * (window.innerHeight - 100) + 50;
+            danmaku.style.top = randomTop + 'px';
+
+            // 设置初始位置在屏幕右侧外
+            danmaku.style.left = '100vw';
+            danmaku.style.right = 'auto';
+
+            container.appendChild(danmaku);
+
+            // 获取动画持续时间
+            const computedStyle = window.getComputedStyle(danmaku);
+            const animationDuration = parseFloat(computedStyle.animationDuration) * 1000;
+
+            // 动画结束后移除弹幕，给一点额外时间确保完全移出屏幕
+            setTimeout(() => {
+                if (danmaku.parentNode) {
+                    danmaku.parentNode.removeChild(danmaku);
+                }
+            }, animationDuration + 500);
+        }
+
+        function startDanmaku() {
+            // 立即显示第一条弹幕，减少延迟
+            setTimeout(createDanmaku, 500);
+
+            // 每2-4秒随机显示一条弹幕，更频繁一些
+            danmakuInterval = setInterval(() => {
+                createDanmaku();
+                danmakuCount++;
+
+                // 显示8条弹幕后停止，避免过度干扰
+                if (danmakuCount >= 8) {
+                    clearInterval(danmakuInterval);
+                    // 20秒后重新开始，减少等待时间
+                    setTimeout(() => {
+                        danmakuCount = 0;
+                        startDanmaku();
+                    }, 20000);
+                }
+            }, Math.random() * 2000 + 2000);
+        }
+
+        function stopDanmaku() {
+            if (danmakuInterval) {
+                clearInterval(danmakuInterval);
+            }
+            // 清除所有现有弹幕
+            const container = document.getElementById('danmakuContainer');
+            container.innerHTML = '';
+        }
+
         function exportToPDF() {
+            closeModal();
             // 设置打印样式,确保A4大小
             const printCSS = `
                 @page {
@@ -550,39 +892,90 @@
             }, 1000);
         }
 
+        function viewWorks() {
+            closeModal();
+            window.open('https://github.com/andaoai/yolo-label-vs', '_blank');
+        }
+
+        function viewGitHub() {
+            closeModal();
+            window.open('https://github.com/andaoai', '_blank');
+        }
+
+        function contactMe() {
+            closeModal();
+            // 创建联系方式弹窗
+            alert('📞 联系方式：\n\n手机：17520092571\n邮箱：andaoai@outlook.com\n\n期待与您的交流！');
+        }
+
+        function downloadResume() {
+            closeModal();
+            // 这里可以添加下载简历文件的逻辑
+            alert('💾 简历下载功能\n\n您可以使用 Ctrl+P 快捷键或点击"导出PDF简历"来保存简历');
+        }
+
         function showActionMenu() {
-            const choice = confirm("请选择操作：\n\n确定 - 导出PDF简历\n取消 - 查看更多选项");
+            document.getElementById('customModal').style.display = 'block';
+            // 显示弹窗时暂停弹幕
+            stopDanmaku();
+        }
 
-            if (choice) {
-                // 用户点击确定,导出PDF
-                exportToPDF();
-            } else {
-                // 用户点击取消,显示更多选项
-                const moreChoice = confirm("请选择：\n\n确定 - 浏览我的作品\n取消 - 查看我的GitHub");
+        function closeModal() {
+            document.getElementById('customModal').style.display = 'none';
+            // 关闭弹窗后重新开始弹幕，减少延迟
+            setTimeout(startDanmaku, 1000);
+        }
 
-                if (moreChoice) {
-                    // 浏览作品
-                    window.open('https://github.com/andaoai/yolo-label-vs', '_blank');
-                } else {
-                    // 查看GitHub
-                    window.open('https://github.com/andaoai', '_blank');
-                }
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            const modal = document.getElementById('customModal');
+            if (event.target === modal) {
+                closeModal();
             }
         }
 
         // 点击页面任意位置触发菜单
         document.addEventListener('click', function(e) {
-            // 避免在链接上点击时触发
-            if (e.target.tagName !== 'A') {
+            // 避免在链接上点击时触发，也避免在模态框内点击时触发
+            if (e.target.tagName !== 'A' && !e.target.closest('.modal-content')) {
                 showActionMenu();
             }
         });
 
-        // 监听键盘快捷键 Ctrl+P
+        // 监听键盘快捷键
         document.addEventListener('keydown', function(e) {
+            // Ctrl+P 导出PDF
             if (e.ctrlKey && e.key === 'p') {
                 e.preventDefault();
                 exportToPDF();
+            }
+            // ESC 关闭模态框
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+            // 空格键暂停/恢复弹幕
+            if (e.key === ' ' && e.target === document.body) {
+                e.preventDefault();
+                if (danmakuInterval) {
+                    stopDanmaku();
+                } else {
+                    startDanmaku();
+                }
+            }
+        });
+
+        // 页面加载完成后启动弹幕
+        document.addEventListener('DOMContentLoaded', function() {
+            // 延迟1秒后开始显示弹幕，快速启动
+            setTimeout(startDanmaku, 1000);
+        });
+
+        // 页面可见性变化时控制弹幕
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                stopDanmaku();
+            } else {
+                setTimeout(startDanmaku, 500);
             }
         });
     </script>
