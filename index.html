@@ -757,9 +757,7 @@
                     <button class="modal-button btn-warning" onclick="contactMe()">
                         📞 联系我
                     </button>
-                    <button class="modal-button btn-secondary" onclick="downloadResume()">
-                        💾 下载简历文件
-                    </button>
+
                     <button class="modal-button btn-danger" onclick="closeModal()">
                         ❌ 关闭
                     </button>
@@ -771,8 +769,7 @@
     <script>
         // 引诱性弹幕提示文本数组
         const danmakuMessages = [
-            "� 点击我！有惊喜等着你~",
-            "🎁 快点击我！免费获取简历下载",
+            "🎁 快点击我！免费导出PDF简历",
             "💎 点击我解锁隐藏宝藏！",
             "🔥 点击我！99%的人都会点",
             "⚡ 点击我！瞬间获得联系方式",
@@ -904,11 +901,7 @@
             alert('📞 联系方式：\n\n手机：17520092571\n邮箱：andaoai@outlook.com\n\n期待与您的交流！');
         }
 
-        function downloadResume() {
-            closeModal();
-            // 这里可以添加下载简历文件的逻辑
-            alert('💾 简历下载功能\n\n您可以使用 Ctrl+P 快捷键或点击"导出PDF简历"来保存简历');
-        }
+
 
         function showActionMenu() {
             document.getElementById('customModal').style.display = 'block';
